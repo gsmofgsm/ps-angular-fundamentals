@@ -2,7 +2,15 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'events-list',
-    templateUrl: './events-list.component.html'
+    template: `
+    <div>
+        <h1>Upcoming Angular Events</h1>
+        <hr>
+        <event-thumbnail
+            (eventClick)="handleClick($event)"
+            [event]="event"></event-thumbnail>
+    </div>
+    `
 })
 export class EventListComponent {
     event = {
@@ -17,5 +25,9 @@ export class EventListComponent {
             city: 'London',
             country: 'England'
         }
+    }
+
+    handleClick(data) {
+        console.log('received: ', data);
     }
 }
