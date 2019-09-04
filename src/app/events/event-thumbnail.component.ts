@@ -20,8 +20,13 @@ import {Component, Input, Output, EventEmitter} from '@angular/core';
 export class EventThumbnailComponent {
     @Input() event:any
     @Output() eventClick = new EventEmitter()
+    someProp:any = 'I am a prop of thumbnail'
 
     clickMe(data) {
         this.eventClick.emit(data);
+    }
+
+    testTemplateVar() {
+        console.log('I am from a method in event-thumbnail');
     }
 }
