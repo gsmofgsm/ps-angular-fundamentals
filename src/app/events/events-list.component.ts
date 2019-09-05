@@ -6,10 +6,13 @@ import { Component } from '@angular/core';
     <div>
         <h1>Upcoming Angular Events</h1>
         <hr>
-        <event-thumbnail
-            *ngFor="let event of events"
-            (eventClick)="handleClick($event)"
-            [event]="event"></event-thumbnail>
+        <div class="row">
+            <div class="col-md-5" *ngFor="let event of events">
+                <event-thumbnail
+                    (eventClick)="handleClick($event)"
+                    [event]="event"></event-thumbnail>
+            </div>
+        </div>
     </div>
     `
 })
