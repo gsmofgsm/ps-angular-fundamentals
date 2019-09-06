@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from './shared/event.service';
 
+declare let toastr
+
 @Component({
     selector: 'events-list',
     template: `
@@ -10,6 +12,7 @@ import { EventService } from './shared/event.service';
         <div class="row">
             <div class="col-md-5" *ngFor="let event of events">
                 <event-thumbnail
+                    (click)="handleThumbnailClick(event.name)"
                     (eventClick)="handleClick($event)"
                     [event]="event"></event-thumbnail>
             </div>
@@ -35,5 +38,9 @@ export class EventListComponent implements OnInit {
 
     handleClick(data) {
         console.log('received: ', data);
+    }
+
+    handleThumbnailClick(eventName: String) {
+        toastr.success(eventName);
     }
 }
