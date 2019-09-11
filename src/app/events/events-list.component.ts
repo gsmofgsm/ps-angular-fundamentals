@@ -21,7 +21,7 @@ import { ToastrService } from '../common/toastr.service';
 })
 export class EventListComponent implements OnInit {
 
-    events:any[]
+    events:any
 
     constructor(private eventService: EventService, private toastrService:ToastrService) {
 
@@ -32,7 +32,7 @@ export class EventListComponent implements OnInit {
         // however, problem is that if getEvents() takes long, like an ajax call
         // it will take long to construct
         // that is why it is put in the life cycle
-        this.events = this.eventService.getEvents();
+        this.events = this.eventService.getEvents().subscribe(events => { this.events = events });
     }
 
     handleClick(data) {
