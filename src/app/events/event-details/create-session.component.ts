@@ -16,6 +16,7 @@ import { ISession, restrictedWords } from '../shared';
 })
 export class CreateSessionComponent implements OnInit {
     @Output() saveNewSession = new EventEmitter()
+    @Output() cancelAddSession = new EventEmitter()
 
     newSessionForm:FormGroup
 
@@ -52,5 +53,9 @@ export class CreateSessionComponent implements OnInit {
             voters: []
         }
         this.saveNewSession.emit(session)
+    }
+
+    cancel() {
+        this.cancelAddSession.emit()
     }
 }
