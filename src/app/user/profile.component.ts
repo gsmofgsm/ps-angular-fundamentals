@@ -16,30 +16,32 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
     profileForm:FormGroup
+    firstName:FormControl
+    lastName:FormControl
 
     constructor(private authService:AuthService, private router:Router) {
 
     }
 
     ngOnInit() {
-        let firstName = new FormControl
+        this.firstName = new FormControl
             (this.authService.currentUser.firstName, Validators.required)
-        let lastName = new FormControl
+        this.lastName = new FormControl
             (this.authService.currentUser.lastName, Validators.required)
         this.profileForm = new FormGroup({
-            firstName: firstName,
-            lastName: lastName
+            firstName: this.firstName,
+            lastName: this.lastName
         })
     }
 
     validateFirstName() {
-        return this.profileForm.controls.firstName.valid || 
-            this.profileForm.controls.firstName.untouched;
+        return this.firstName.valid || 
+            this.firstName.untouched;
     }
 
     validateLastName() {
-        return this.profileForm.controls.lastName.valid || 
-            this.profileForm.controls.lastName.untouched;
+        return this.lastName.valid || 
+            this.lastName.untouched;
     }
 
     saveProfile(formValues) {
