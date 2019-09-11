@@ -19,6 +19,7 @@ import {
   CreateEventComponent,
   EventListResolver
 } from './events/index'
+import { AuthService } from './user/auth.service';
 
 @NgModule({
   imports: [
@@ -38,7 +39,8 @@ import {
     EventService, 
     ToastrService, 
     EventRouteActivator,
-    EventListResolver
+    EventListResolver,
+    AuthService
   ],
   bootstrap: [EventsAppComponent]
 })
