@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from './shared/event.service';
 import { ToastrService } from '../common/toastr.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'events-list',
@@ -23,7 +24,7 @@ export class EventListComponent implements OnInit {
 
     events:any
 
-    constructor(private eventService: EventService, private toastrService:ToastrService) {
+    constructor(private eventService: EventService, private toastrService:ToastrService, private route: ActivatedRoute) {
 
     }
 
@@ -32,7 +33,7 @@ export class EventListComponent implements OnInit {
         // however, problem is that if getEvents() takes long, like an ajax call
         // it will take long to construct
         // that is why it is put in the life cycle
-        this.events = this.eventService.getEvents().subscribe(events => { this.events = events });
+        this.events = this.route.snapshot.data['events'];
     }
 
     handleClick(data) {
