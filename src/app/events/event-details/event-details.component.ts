@@ -14,6 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class EventDetailsComponent implements OnInit {
 
     event:any
+    addMode:boolean = false
 
     constructor(private eventService: EventService, private route: ActivatedRoute, private router:Router) {
 
@@ -25,6 +26,6 @@ export class EventDetailsComponent implements OnInit {
     }
 
     addSession() {
-        this.router.navigate(['/events/sessions/new'])
+        this.addMode = true
     }
 }
