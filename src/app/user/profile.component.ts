@@ -32,6 +32,16 @@ export class ProfileComponent implements OnInit {
         })
     }
 
+    validateFirstName() {
+        return this.profileForm.controls.firstName.valid || 
+            this.profileForm.controls.firstName.untouched;
+    }
+
+    validateLastName() {
+        return this.profileForm.controls.lastName.valid || 
+            this.profileForm.controls.lastName.untouched;
+    }
+
     saveProfile(formValues) {
         if (this.profileForm.valid) {
             this.authService.updateCurrentUser(formValues.firstName, formValues.lastName)
