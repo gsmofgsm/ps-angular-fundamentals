@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router'
 import { EventsAppComponent } from './events-app.component'
 import { NavbarComponent } from './nav/navbar.component'
 
-import { TOASTR_TOKEN, Toastr, JQ_TOKEN, CollapsibleWelComponent, SimpleModalComponent } from './common'
+import { TOASTR_TOKEN, Toastr, JQ_TOKEN, CollapsibleWelComponent, SimpleModalComponent, ModalTriggerDirective } from './common'
 
 import { appRoutes } from './routes'
 import { Error404Component } from './errors/404.component';
@@ -47,6 +47,7 @@ let jQuery = window['$']
     CollapsibleWelComponent,
     Error404Component,
     SimpleModalComponent,
+    ModalTriggerDirective,
     DurationPipe
   ],
   providers: [
