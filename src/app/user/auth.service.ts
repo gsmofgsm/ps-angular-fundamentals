@@ -30,4 +30,13 @@ export class AuthService {
     isAuthenticated() {
         return !!this.currentUser
     }
+
+    checkAuthenticationStatus() {
+        this.http.get('/api/currentIdentity')
+            .subscribe(data=>{
+                if (data instanceof Object) {
+                    this.currentUser = <IUser>data
+                }
+            })
+    }
 }
