@@ -27,11 +27,6 @@ export class EventService {
         .pipe(catchError(this.handleError<IEvent>('saveEvent')))
     }
 
-    updateEvent(event) {
-      let index = EVENTS.findIndex(x => x.id === event.id)
-      EVENTS[index] = event
-    }
-
     searchSessions(searchTerm:string) {
       var term = searchTerm.toLocaleLowerCase()
       var result:ISession[] = []
