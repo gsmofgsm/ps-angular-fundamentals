@@ -25,7 +25,8 @@ import {
   DurationPipe,
   UpvoteComponent,
   VoterService,
-  LocationValidator
+  LocationValidator,
+  EventResolver
 } from './events/index'
 import { AuthService } from './user/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -64,6 +65,7 @@ let jQuery = window['$']
     {provide: JQ_TOKEN, useValue: jQuery}, 
     EventRouteActivator,
     EventListResolver,
+    EventResolver,
     AuthService,
     VoterService
   ],
