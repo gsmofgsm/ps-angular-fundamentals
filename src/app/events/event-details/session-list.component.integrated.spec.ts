@@ -7,6 +7,7 @@ import { VoterService } from './voter.service';
 import { UpvoteComponent } from './upvote.component';
 import { DurationPipe } from '../shared';
 import { CollapsibleWelComponent } from 'src/app/common';
+import { By } from '@angular/platform-browser';
 
 describe('SessionListComponent', () => {
     let fixture:ComponentFixture<SessionListComponent>,
@@ -45,19 +46,20 @@ describe('SessionListComponent', () => {
 
     describe('initial display', () => {
         // it('should have the correct session title', () => {
-            // component.sessions = [
-            //     {id: 3, name: 'session 1', presenter: 'Joe', duration: 1, level: 'beginner', abstract: 'abstract', voters: ['john', 'bob']}
-            // ]
-            // component.filterBy = 'all'
-            // component.sortBy = 'name'
-            // component.eventId = 4
+        //     component.sessions = [
+        //         {id: 3, name: 'session 1', presenter: 'Joe', duration: 1, level: 'beginner', abstract: 'abstract', voters: ['john', 'bob']}
+        //     ]
+        //     component.filterBy = 'all'
+        //     component.sortBy = 'name'
+        //     component.eventId = 4
 
-            // component.ngOnChanges()
+        //     component.ngOnChanges()
 
-            // fixture.detectChanges()
+        //     fixture.detectChanges()
 
-            // console.log(element.querySelector('[well-title]').textContent)
-            // expect(element.querySelector('[well-title]').textContent).toContain('session 1')
+        //     // console.log(element.querySelector('[well-title]').textContent)
+        //     // expect(element.querySelector('[well-title]').textContent).toContain('session 1')
+        //     expect(debugEl.query(By.css('[well-title]')).nativeElement.textContent).toContain('session 1')
         // })
     })
 })
