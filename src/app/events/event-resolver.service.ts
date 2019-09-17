@@ -8,7 +8,7 @@ export class EventResolver implements Resolve<any> {
 
     }
 
-    resolve(route: ActivatedRouteSnapshot) {
-        return this.eventService.getEvent(route.params.id);
+    resolve(route:ActivatedRouteSnapshot) {
+        return this.eventService.getEvent(route.params['id'])
     }
 }

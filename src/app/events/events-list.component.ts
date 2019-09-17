@@ -19,7 +19,7 @@ import { IEvent } from './shared';
 })
 export class EventListComponent implements OnInit {
 
-    events: IEvent[];
+    events:IEvent[]
 
     constructor(private eventService: EventService, private route: ActivatedRoute) {
 
@@ -30,6 +30,6 @@ export class EventListComponent implements OnInit {
         // however, problem is that if getEvents() takes long, like an ajax call
         // it will take long to construct
         // that is why it is put in the life cycle
-        this.events = this.route.snapshot.data.events;
+        this.events = this.route.snapshot.data['events'];
     }
 }

@@ -15,23 +15,23 @@ import { ISession, restrictedWords } from '../shared';
     `]
 })
 export class CreateSessionComponent implements OnInit {
-    @Output() saveNewSession = new EventEmitter();
-    @Output() cancelAddSession = new EventEmitter();
+    @Output() saveNewSession = new EventEmitter()
+    @Output() cancelAddSession = new EventEmitter()
 
-    newSessionForm: FormGroup;
+    newSessionForm:FormGroup
 
-    name: FormControl;
-    presenter: FormControl;
-    duration: FormControl;
-    level: FormControl;
-    abstract: FormControl;
+    name:FormControl
+    presenter:FormControl
+    duration:FormControl
+    level:FormControl
+    abstract:FormControl
 
     ngOnInit() {
         this.name = new FormControl('', Validators.required),
         this.presenter = new FormControl('', Validators.required),
         this.duration = new FormControl('', Validators.required),
         this.level = new FormControl('', Validators.required),
-        this.abstract = new FormControl('', [Validators.required, Validators.maxLength(10), restrictedWords(['foo', 'bar'])]);
+        this.abstract = new FormControl('', [Validators.required, Validators.maxLength(10), restrictedWords(['foo', 'bar'])])
 
         this.newSessionForm = new FormGroup({
             name: this.name,
@@ -39,11 +39,11 @@ export class CreateSessionComponent implements OnInit {
             duration: this.duration,
             level: this.level,
             abstract: this.abstract,
-        });
+        })
     }
 
     saveSession(formValues) {
-        const session: ISession = {
+        let session:ISession = {
             id: undefined,
             name: formValues.name,
             presenter: formValues.presenter,
@@ -51,11 +51,11 @@ export class CreateSessionComponent implements OnInit {
             level: formValues.level,
             abstract: formValues.abstract,
             voters: []
-        };
-        this.saveNewSession.emit(session);
+        }
+        this.saveNewSession.emit(session)
     }
 
     cancel() {
-        this.cancelAddSession.emit();
+        this.cancelAddSession.emit()
     }
 }

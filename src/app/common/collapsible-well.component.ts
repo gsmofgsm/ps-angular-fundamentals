@@ -12,9 +12,9 @@ import { Component, Input } from '@angular/core';
     `
 })
 export class CollapsibleWelComponent {
-    visible = true;
+    visible:boolean = true
 
     toggleContent() {
-        this.visible = ! this.visible;
+        this.visible = ! this.visible
     }
 }

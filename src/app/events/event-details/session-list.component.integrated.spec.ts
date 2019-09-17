@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { SessionListComponent } from './session-list.component';
 import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 import { async } from 'q';
@@ -10,26 +10,26 @@ import { CollapsibleWelComponent } from 'src/app/common';
 import { By } from '@angular/platform-browser';
 
 describe('SessionListComponent', () => {
-    let fixture: ComponentFixture<SessionListComponent>,
+    let fixture:ComponentFixture<SessionListComponent>,
         component: SessionListComponent,
         element: HTMLElement,
-        debugEl: DebugElement;
+        debugEl: DebugElement
 
     beforeEach(async(() => {
-        const mockAuthService = {
+        let mockAuthService = {
             currentUser: {userName: 'Joe'},
-            isAuthenticated: () => true
-        };
-        const mockVoterService = {
+            isAuthenticated:() => true
+        }
+        let mockVoterService = {
             userHasVoted: () => true
-        };
+        }
 
         TestBed.configureTestingModule({
             imports: [],
             declarations: [
-                SessionListComponent,
-                // UpvoteComponent,
-                DurationPipe,
+                SessionListComponent, 
+                // UpvoteComponent, 
+                DurationPipe, 
                 // CollapsibleWelComponent
             ],
             providers: [
@@ -37,15 +37,15 @@ describe('SessionListComponent', () => {
                 {provide: VoterService, useValue: mockVoterService},
             ],
             schemas: [NO_ERRORS_SCHEMA]
-        });
-    }));
+        })
+    }))
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(SessionListComponent);
-        component = fixture.componentInstance;
-        debugEl = fixture.debugElement;
-        element = fixture.nativeElement;
-    });
+        fixture = TestBed.createComponent(SessionListComponent)
+        component = fixture.componentInstance
+        debugEl = fixture.debugElement
+        element = fixture.nativeElement
+    })
 
     describe('initial display', () => {
         // it('should have the correct session title', () => {
@@ -64,5 +64,5 @@ describe('SessionListComponent', () => {
         //     // expect(element.querySelector('[well-title]').textContent).toContain('session 1')
         //     expect(debugEl.query(By.css('[well-title]')).nativeElement.textContent).toContain('session 1')
         // })
-    });
-});
+    })
+})

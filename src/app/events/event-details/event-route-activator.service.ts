@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core'
 import { CanActivate, ActivatedRouteSnapshot, Router } from '@angular/router';
 import { EventService } from '../shared/event.service';
 import { CreateEventComponent } from '../create-event.component';
@@ -9,18 +9,17 @@ export class EventRouteActivator implements CanActivate {
 
      }
      canActivate(route: ActivatedRouteSnapshot) {
-        const eventExists = !!this.eventService.getEvent(+route.params.id);
+        const eventExists = !!this.eventService.getEvent(+route.params['id'])
 
-        if (!eventExists) {
-            this.router.navigate(['/404']);
-        }
-        return eventExists;
+        if (!eventExists)
+            this.router.navigate(['/404'])
+        return eventExists
      }
 
-     canDeactivate(component: CreateEventComponent): boolean {
+     canDeactivate(component: CreateEventComponent):boolean {
         if (component.isDirty) {
-            return window.confirm('Are you sure to leave this page?');
+            return window.confirm('Are you sure to leave this page?')
         }
-        return true;
+        return true
      }
 }
