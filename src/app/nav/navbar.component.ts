@@ -14,16 +14,16 @@ import { EventService, ISession } from '../events';
 
 })
 export class NavbarComponent {
-    searchTerm:string = ""
-    foundSessions:ISession[]
-    constructor(public auth:AuthService, private eventService:EventService) {
+    searchTerm = '';
+    foundSessions: ISession[];
+    constructor(public auth: AuthService, private eventService: EventService) {
 
     }
 
     searchSessions(searchTerm) {
         this.eventService.searchSessions(searchTerm).subscribe
             (sessions => {
-                this.foundSessions = sessions
-            })
+                this.foundSessions = sessions;
+            });
     }
 }

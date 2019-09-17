@@ -30,8 +30,8 @@ import { IEvent } from './shared';
     `]
 })
 export class EventThumbnailComponent {
-    @Input() event:IEvent
-    @Output() eventClick = new EventEmitter()
+    @Input() event: IEvent;
+    @Output() eventClick = new EventEmitter();
 
     clickMe(data) {
         this.eventClick.emit(data);
