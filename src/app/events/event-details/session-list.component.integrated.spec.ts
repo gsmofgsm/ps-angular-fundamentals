@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { SessionListComponent } from './session-list.component';
-import { DebugElement } from '@angular/core';
+import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 import { async } from 'q';
 import { AuthService } from 'src/app/user/auth.service';
 import { VoterService } from './voter.service';
@@ -27,13 +27,16 @@ describe('SessionListComponent', () => {
         TestBed.configureTestingModule({
             imports: [],
             declarations: [
-                SessionListComponent, UpvoteComponent, DurationPipe, CollapsibleWelComponent
+                SessionListComponent, 
+                // UpvoteComponent, 
+                DurationPipe, 
+                // CollapsibleWelComponent
             ],
             providers: [
                 {provide: AuthService, useValue: mockAuthService},
                 {provide: VoterService, useValue: mockVoterService},
             ],
-            schemas: []
+            schemas: [NO_ERRORS_SCHEMA]
         })
     }))
 
