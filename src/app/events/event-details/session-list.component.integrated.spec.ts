@@ -1,7 +1,6 @@
-import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { ComponentFixture, TestBed, async } from "@angular/core/testing";
 import { SessionListComponent } from './session-list.component';
 import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
-import { async } from 'q';
 import { AuthService } from 'src/app/user/auth.service';
 import { VoterService } from './voter.service';
 import { UpvoteComponent } from './upvote.component';
@@ -28,15 +27,15 @@ describe('SessionListComponent', () => {
             imports: [],
             declarations: [
                 SessionListComponent, 
-                // UpvoteComponent, 
+                UpvoteComponent, 
                 DurationPipe, 
-                // CollapsibleWelComponent
+                CollapsibleWelComponent
             ],
             providers: [
                 {provide: AuthService, useValue: mockAuthService},
                 {provide: VoterService, useValue: mockVoterService},
             ],
-            schemas: [NO_ERRORS_SCHEMA]
+            schemas: []
         })
     }))
 
@@ -48,21 +47,22 @@ describe('SessionListComponent', () => {
     })
 
     describe('initial display', () => {
-        // it('should have the correct session title', () => {
-        //     component.sessions = [
-        //         {id: 3, name: 'session 1', presenter: 'Joe', duration: 1, level: 'beginner', abstract: 'abstract', voters: ['john', 'bob']}
-        //     ]
-        //     component.filterBy = 'all'
-        //     component.sortBy = 'name'
-        //     component.eventId = 4
+        it('should have the correct session title', () => {
 
-        //     component.ngOnChanges()
+            component.sessions = [
+                {id: 3, name: 'session 1', presenter: 'Joe', duration: 1, level: 'beginner', abstract: 'abstract', voters: ['john', 'bob']}
+            ]
+            component.filterBy = 'all'
+            component.sortBy = 'name'
+            component.eventId = 4
 
-        //     fixture.detectChanges()
+            component.ngOnChanges()
 
-        //     // console.log(element.querySelector('[well-title]').textContent)
-        //     // expect(element.querySelector('[well-title]').textContent).toContain('session 1')
-        //     expect(debugEl.query(By.css('[well-title]')).nativeElement.textContent).toContain('session 1')
-        // })
+            fixture.detectChanges()
+
+            console.log(element.querySelector('[well-title]').textContent)
+            expect(element.querySelector('[well-title]').textContent).toContain('session 1')
+            // expect(debugEl.query(By.css('[well-title]')).nativeElement.textContent).toContain('session 1')
+        })
     })
 })
